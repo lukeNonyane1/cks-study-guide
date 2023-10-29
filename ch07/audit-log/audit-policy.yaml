@@ -1,13 +1,13 @@
 apiVersion: audit.k8s.io/v1
 kind: Policy
 omitStages:
-  - "RequestReceived"
+  - "RequestReceived" # Prevents generating logs for all requests in the RequestReceived stage
 rules:
   - level: RequestResponse
     resources:
     - group: ""
-      resources: ["pods"]
+      resources: ["pods"] # Logs Pod changes at RequestResponse level
   - level: Metadata
     resources:
     - group: ""
-      resources: ["pods/log", "pods/status"]
+      resources: ["pods/log", "pods/status"] # Logs specialized Pod events, e.g., log and status requests, at the Metadata level

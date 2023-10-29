@@ -4,6 +4,7 @@ metadata:
   name: accounting-ingress
   namespace: t75
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - accounting.internal.acme.com

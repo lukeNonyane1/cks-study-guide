@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-apparmor
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/hello: localhost/k8s-deny-write
+spec:
+  nodeName: worker-1
+  containers:
+  - name: hello
+    image: busybox
+    command: ["sh", "-c", "echo 'Hello AppArmor!' && sleep 1h"]

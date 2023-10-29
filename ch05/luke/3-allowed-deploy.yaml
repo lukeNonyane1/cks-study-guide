@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: allowed-replica-range
+  name: allowed-replica-range
+spec:
+  replicas: 7
+  selector:
+    matchLabels:
+      app: allowed-replica-range
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: allowed-replica-range
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}

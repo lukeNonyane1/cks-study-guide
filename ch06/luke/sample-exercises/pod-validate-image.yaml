@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod-validate
+  name: pod-validate
+spec:
+  containers:
+  - image: nginx@sha256:6244229c59a9ae1eae7a17c61cc1e15bcfe95cead88bf33fb734708b65744aaf
+    name: pod-validate
+    command:
+    - /bin/sh
+    - -c
+    - >
+      sleep 360
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

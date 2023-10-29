@@ -6,17 +6,17 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      tier: backend
+      tier: backend # applies to pods matching this label.
   policyTypes:
   - Ingress
   ingress:
   - from:
     - namespaceSelector:
         matchLabels:
-          app: orion
+          app: orion # applies to namespeaces matching this label.
       podSelector:
         matchLabels:
-          tier: frontend
+          tier: frontend # applies to pods matching this label.
     ports:
     - protocol: TCP
-      port: 3000
+      port: 3000 # allow traffic on this port.

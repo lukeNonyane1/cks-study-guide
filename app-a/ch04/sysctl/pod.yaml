@@ -3,7 +3,11 @@ kind: Pod
 metadata:
   name: sysctl-pod
 spec:
+  nodeName: worker-1
   securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: profiles/somaxconn-allow.json
     sysctls:
     - name: net.core.somaxconn
       value: "1024"

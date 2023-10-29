@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: denied-replica-range
+  name: denied-replica-range
+spec:
+  replicas: 15
+  selector:
+    matchLabels:
+      app: denied-replica-range
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: denied-replica-range
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}

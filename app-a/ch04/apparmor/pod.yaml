@@ -5,7 +5,15 @@ metadata:
   annotations:
     container.apparmor.security.beta.kubernetes.io/network-call: localhost/network-deny
 spec:
+  nodeName: worker-1
   containers:
   - name: network-call
-    image: alpine/curl:3.14
+    image: alpine/curl
     command: ["sh", "-c", "while true; do ping -c 1 google.com; sleep 5; done"]
+    # - /bin/bash
+    # - -c
+    # - >
+    #   apt update &&
+    #   apt install ping -y &&
+    #   "while true; do ping -c 1 googl.com; sleep 5; done"
+    
